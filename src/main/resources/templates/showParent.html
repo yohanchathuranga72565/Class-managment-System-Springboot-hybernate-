@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<link href="css/one-page-wonder.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<title>Student Registration System</title>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Student Registration System</h1>
+		<hr>
+		<h2>Parent Details</h2>
+		
+		<form action="#" th:object = "${parent}" method = "POST">
+			<input type="hidden" th:field = "*{id}">
+			<input type="text" th:field = "*{firstName}"  class = "form-control mb-4 col-4" disabled>
+			<input type="text" th:field = "*{lastName}"  class = "form-control mb-4 col-4" disabled>
+			<input type="number" th:field = "*{age}"  class = "form-control mb-4 col-4" disabled>
+			
+		</form>
+		
+		<hr>
+		
+		<a class="btn btn-sm btn-info col-2" th:href="@{/viewStudents}">Back to View Student</a>
+	
+	
+	</div>
+</body>
+</html>

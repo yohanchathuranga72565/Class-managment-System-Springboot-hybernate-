@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<link href="css/one-page-wonder.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+<title>Student Registration System</title>
+</head>
+<body>
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" th:href= "@{/}">AIT Institute</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" th:href= "@{/viewStudents}">View Student List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href= "@{/showNewParentForm}">Register New Student</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+	
+	<div class="container my-2">
+	<h1>Students List</h1>
+		
+		<table border="1" class="table table-striped table-responsive-md my-2">
+			<thead>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Age</th>
+					<th>Email</th>
+					<th>Grade</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="student : ${listStudents}">
+					<td th:text="${student.firstName}"></td>
+					<td th:text="${student.lastName}"></td>
+					<td th:text="${student.age}"></td>
+					<td th:text="${student.email}"></td>
+					<td th:text="${student.grade}"></td>
+					<td>
+						<a th:href= "@{/showParent/{id}(id=${student.id})}" class="btn btn-primary btn-sm">Parent Detail</a>
+						<a th:href= "@{/showFormForUpdate/{id}(id=${student.id})}" class="btn btn-primary btn-sm">Update</a>
+						<a th:href= "@{/deleteStudent/{id}(id=${student.id})}" class="btn btn-danger btn-sm">Delete</a>
+					
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

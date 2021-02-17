@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+
+<link href="css/one-page-wonder.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<title>Student Registration System</title>
+</head>
+<body>
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" th:href= "@{/}">AIT Institute</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" th:href= "@{/viewStudents}">View Student List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href= "@{/showNewParentForm}">Register New Student</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+	<div class="container">
+		<h1>Student Registration System</h1>
+		<a class = "btn btn-sm btn-info col-2 mb-4" th:href="@{/showParent}">Show Subject list</a><br>
+		<hr>
+		<h2>Save Subject</h2>
+		
+		
+		<form action="#" th:action = "@{/saveSubject}" th:object = "${subject}" method = "POST">
+			<input type="text" th:field = "*{name}" placeholder = "Enter Subject Name" class = "form-control mb-4 col-4" required>
+			<button type="submit" class = "btn btn-sm btn-info col-2">Save Subject</button>
+		</form>
+		
+		
+		<hr>
+		
+		<a th:href="@{/viewStudents}">Back to View Subject</a>
+	
+	
+	</div>
+
+</body>
+</html>
